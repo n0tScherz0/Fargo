@@ -1,0 +1,20 @@
+# Fargo — Dead Internet Theory
+# https://github.com/deadinternettheory/fargo
+
+# Environment credentials — NEVER commit this file
+env.js
+
+# OS / Editor artifacts
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/settings.json
+
+# Node (if ever introduced)
+node_modules/
+npm-debug.log*
+
+# Build output (if ever introduced)
+dist/
+.netlify/

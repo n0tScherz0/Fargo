@@ -1,0 +1,734 @@
+/* ==========================================================================
+   FARGO — COMPONENT STYLES
+   Dead Internet Theory | Gauges, Evidence Cards, Findings & Modals
+   ========================================================================== */
+
+/* -------------------------------------------------------------
+   RESULT SCREEN (CORE FORENSIC VIEWPORT)
+   ------------------------------------------------------------- */
+.result-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.75rem;
+  margin-bottom: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.result-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.result-status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.result-meta-inline {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.result-meta-inline span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.result-meta-inline strong {
+  color: var(--text-primary);
+}
+
+/* Primary Top Split Layout */
+.result-primary-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+/* Forensic Viewport (Left) */
+.forensic-viewport-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.viewport-toolbar {
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.viewport-filters-group {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.viewport-filter-btn {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-xs);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.viewport-filter-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+
+.viewport-filter-btn.active {
+  background: rgba(0, 240, 255, 0.12);
+  border-color: var(--cyan-primary);
+  color: var(--cyan-primary);
+}
+
+.viewport-canvas-container {
+  min-height: 420px;
+  background: #040609;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.viewport-canvas {
+  max-width: 100%;
+  max-height: 440px;
+  object-fit: contain;
+  display: block;
+}
+
+.viewport-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(0, 240, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  display: none;
+}
+
+.viewport-grid-overlay.active {
+  display: block;
+}
+
+.viewport-crosshair {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: none;
+}
+
+.viewport-crosshair.active {
+  display: block;
+}
+
+.viewport-crosshair::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 240, 255, 0.35);
+}
+
+.viewport-crosshair::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background: rgba(0, 240, 255, 0.35);
+}
+
+.viewport-footer-bar {
+  background: var(--bg-tertiary);
+  border-top: 1px solid var(--border-subtle);
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* Verdict & Confidence Panel (Right) */
+.verdict-summary-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  box-shadow: var(--shadow-md);
+}
+
+.verdict-badge-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.verdict-main-block {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.verdict-classification-title {
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem;
+}
+
+.verdict-classification-title.ai {
+  color: #f87171;
+  text-shadow: 0 0 20px rgba(239, 68, 68, 0.25);
+}
+
+.verdict-classification-title.real {
+  color: #34d399;
+  text-shadow: 0 0 20px rgba(16, 185, 129, 0.25);
+}
+
+.verdict-classification-title.warning {
+  color: #fbbf24;
+  text-shadow: 0 0 20px rgba(245, 158, 11, 0.25);
+}
+
+.verdict-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+/* Precision Semicircular Radial Gauge */
+.gauge-wrapper {
+  position: relative;
+  width: 220px;
+  height: 130px;
+  margin: 1.25rem auto 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gauge-svg {
+  width: 220px;
+  height: 120px;
+  overflow: visible;
+}
+
+.gauge-track {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.08);
+  stroke-width: 14;
+  stroke-linecap: round;
+}
+
+.gauge-fill {
+  fill: none;
+  stroke: var(--cyan-primary);
+  stroke-width: 14;
+  stroke-linecap: round;
+  stroke-dasharray: 283;
+  stroke-dashoffset: 283;
+  transition: stroke-dashoffset 1.2s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.4s ease;
+}
+
+.gauge-fill.ai {
+  stroke: #ef4444;
+  filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.5));
+}
+
+.gauge-fill.real {
+  stroke: #10b981;
+  filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.5));
+}
+
+.gauge-fill.warning {
+  stroke: #f59e0b;
+  filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.5));
+}
+
+.gauge-value-display {
+  position: absolute;
+  bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gauge-number {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--text-highlight);
+}
+
+.gauge-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Secondary Metrics Bar */
+.verdict-secondary-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1.25rem;
+}
+
+.verdict-mini-metric {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  padding: 0.6rem;
+  border-radius: var(--radius-xs);
+  text-align: center;
+}
+
+.mini-metric-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.2rem;
+}
+
+.mini-metric-val {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* -------------------------------------------------------------
+   FORENSIC EVIDENCE DETAILS GRID
+   ------------------------------------------------------------- */
+.evidence-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.evidence-quad-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.evidence-detail-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.evidence-card-title {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cyan-muted);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.evidence-key-value-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.evidence-kv-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.84rem;
+}
+
+.evidence-kv-key {
+  color: var(--text-secondary);
+}
+
+.evidence-kv-val {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-highlight);
+  font-weight: 500;
+}
+
+/* -------------------------------------------------------------
+   FINDINGS & AUDIT TRAIL TIMELINE SECTION
+   ------------------------------------------------------------- */
+.findings-timeline-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.findings-list-card, .timeline-audit-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+}
+
+.card-title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.findings-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.finding-item {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.finding-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.finding-title {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.finding-desc {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.finding-tags-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.3rem;
+}
+
+.finding-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-xs);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-muted);
+}
+
+/* Vertical Timeline */
+.vertical-timeline {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.vertical-timeline::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 6px;
+  width: 2px;
+  background: var(--border-medium);
+}
+
+.timeline-step {
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+.timeline-step:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -1.5rem;
+  top: 3px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 2px solid var(--cyan-primary);
+  box-shadow: 0 0 8px var(--cyan-glow);
+}
+
+.timeline-step.completed .timeline-dot {
+  background: var(--cyan-primary);
+}
+
+.timeline-step-title {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-highlight);
+  margin-bottom: 0.2rem;
+}
+
+.timeline-step-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* -------------------------------------------------------------
+   REPORT VIEWER MODAL & PRINT STYLING
+   ------------------------------------------------------------- */
+.report-modal-dialog {
+  max-width: 860px;
+}
+
+.report-document-sheet {
+  background: #ffffff;
+  color: #0f172a;
+  padding: 3rem 3.5rem;
+  border-radius: var(--radius-xs);
+  font-family: var(--font-sans);
+  line-height: 1.55;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+.report-doc-header {
+  border-bottom: 2px solid #0f172a;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.report-doc-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.report-doc-meta {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: #64748b;
+  text-align: right;
+}
+
+.report-doc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.report-doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  font-size: 0.85rem;
+}
+
+.report-doc-table th, .report-doc-table td {
+  border: 1px solid #cbd5e1;
+  padding: 0.6rem 0.85rem;
+  text-align: left;
+}
+
+.report-doc-table th {
+  background: #f1f5f9;
+  font-weight: 600;
+}
+
+.report-doc-disclaimer {
+  background: #f8fafc;
+  border-left: 3px solid #64748b;
+  padding: 0.85rem 1.25rem;
+  font-size: 0.78rem;
+  color: #64748b;
+  margin-top: 2rem;
+}
+
+/* -------------------------------------------------------------
+   JSON INSPECTOR MODAL & TREE
+   ------------------------------------------------------------- */
+.json-modal-dialog {
+  max-width: 820px;
+}
+
+.json-code-box {
+  background: #06080c;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: #7dd3fc;
+  max-height: 480px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* -------------------------------------------------------------
+   PROTOTYPE CONTROLS FLOATING DRAWER
+   ------------------------------------------------------------- */
+.prototype-trigger-btn {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: 400;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-medium);
+  box-shadow: var(--shadow-md), 0 0 15px rgba(0, 240, 255, 0.15);
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--cyan-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.prototype-trigger-btn:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--cyan-primary);
+  transform: translateY(-2px);
+}
+
+/* Table Layouts (Analyses & Reports) */
+.data-table-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.fargo-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.fargo-table th {
+  background: var(--bg-tertiary);
+  padding: 0.85rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.fargo-table td {
+  padding: 1rem 1.25rem;
+  font-size: 0.86rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.fargo-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Responsive Component Breakpoints */
+@media (max-width: 1100px) {
+  .result-primary-grid, .findings-timeline-grid {
+    grid-template-columns: 1fr;
+  }
+  .evidence-quad-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .staged-media-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .evidence-quad-grid {
+    grid-template-columns: 1fr;
+  }
+  .app-sidebar {
+    position: fixed;
+    left: -260px;
+  }
+  .app-sidebar.open {
+    left: 0;
+  }
+  .view-container {
+    padding: 1.25rem;
+  }
+}
