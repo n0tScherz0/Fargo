@@ -2,7 +2,7 @@
 # https://github.com/deadinternettheory/fargo
 
 # Environment credentials — NEVER commit this file
-env.js
+env.example.js
 
 # OS / Editor artifacts
 .DS_Store
